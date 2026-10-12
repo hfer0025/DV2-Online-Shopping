@@ -1,0 +1,282 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Emerging markets: 2021 → 2024",
+    "subtitle": "Developing economies, % of adults who bought online"
+  },
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/findex_dumbbell.csv",
+    "format": {
+      "parse": {
+        "pct_2021": "number",
+        "pct_2024": "number"
+      }
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "country",
+      "type": "nominal",
+      "sort": [
+        "China",
+        "Thailand",
+        "Viet Nam",
+        "Brazil",
+        "Turkiye",
+        "Philippines",
+        "Indonesia",
+        "Kenya",
+        "Mexico",
+        "India",
+        "South Africa",
+        "Nigeria",
+        "Egypt, Arab Rep.",
+        "Pakistan"
+      ],
+      "title": null,
+      "axis": {
+        "labelFontSize": 11,
+        "ticks": false,
+        "domain": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "pct_2021",
+          "type": "quantitative",
+          "title": "% of adults who bought online",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          },
+          "axis": {
+            "tickCount": 5,
+            "labelExpr": "datum.value + '%'"
+          }
+        },
+        "x2": {
+          "field": "pct_2024"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct_2024 >= datum.pct_2021",
+            "value": "#c4ab83"
+          },
+          "value": "#d6d3cc"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "pct_2021",
+            "pct_2024"
+          ],
+          "as": [
+            "year",
+            "pct"
+          ]
+        },
+        {
+          "calculate": "datum.year === 'pct_2021' ? '2021' : '2024'",
+          "as": "Survey"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 90,
+        "opacity": 1,
+        "stroke": "#5e4a2e",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "pct",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Survey",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "2021",
+              "2024"
+            ],
+            "range": [
+              "#ffffff",
+              "#5e4a2e"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "title": null
+          }
+        },
+        "tooltip": [
+          {
+            "field": "country"
+          },
+          {
+            "field": "Survey"
+          },
+          {
+            "field": "pct",
+            "title": "%",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.iso3 === 'IND'"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 110,
+        "color": "#e8590c"
+      },
+      "encoding": {
+        "x": {
+          "field": "pct_2024",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.iso3 === 'IND'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "color": "#e8590c",
+        "fontWeight": 700,
+        "fontSize": 11
+      },
+      "encoding": {
+        "x": {
+          "field": "pct_2024",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "India doubled: 8% → 16%"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 77.4
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "color": "#4a3f2e"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": 380
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 77.4
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "baseline": "bottom",
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#4a3f2e",
+        "text": [
+          "Australia",
+          "(2021): 77%"
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 345
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

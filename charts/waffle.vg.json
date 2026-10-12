@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Who spends the online dollar?",
+    "subtitle": "Share of 2025 online spend by generation"
+  },
+  "width": 210,
+  "height": 210,
+  "data": {
+    "url": "data/waffle_generations.csv",
+    "format": {
+      "parse": {
+        "id": "number",
+        "col": "number",
+        "row": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "{'Millennials':'$29.7B (36%)','Gen X':'$22.7B (27%)','Gen Z':'$14.6B (18%)','Baby Boomers':'$12.2B (15%)','Builders':'$3.4B (4%)'}[datum.generation]",
+      "as": "spend"
+    }
+  ],
+  "params": [
+    {
+      "name": "pickGen",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Millennials",
+          "Gen X",
+          "Gen Z",
+          "Baby Boomers",
+          "Builders"
+        ],
+        "name": "Highlight a generation: "
+      }
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 2,
+    "stroke": "#ffffff",
+    "strokeWidth": 2.5
+  },
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null
+    },
+    "color": {
+      "field": "generation",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Millennials",
+          "Gen X",
+          "Gen Z",
+          "Baby Boomers",
+          "Builders"
+        ],
+        "range": [
+          "#e8590c",
+          "#4a3f2e",
+          "#a08b66",
+          "#c9b99a",
+          "#e6dccb"
+        ]
+      },
+      "legend": {
+        "title": [
+          "1 square =",
+          "1% of $82.6B"
+        ],
+        "orient": "right",
+        "labelFontSize": 12,
+        "symbolType": "square",
+        "symbolSize": 160,
+        "labelExpr": "{'Millennials':'Millennials 36%','Gen X':'Gen X 27%','Gen Z':'Gen Z 18%','Baby Boomers':'Boomers 15%','Builders':'Builders 4%'}[datum.label]"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "test": "pickGen === 'All' || datum.generation === pickGen",
+        "value": 1
+      },
+      "value": 0.15
+    },
+    "tooltip": [
+      {
+        "field": "generation",
+        "title": "Generation"
+      },
+      {
+        "field": "spend",
+        "title": "Spend 2025"
+      }
+    ]
+  },
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Who shops online? % of adults who bought something online",
+    "subtitle": "Global Findex 2021 (2022 for a few economies). Hover a country · drag the slider to filter"
+  },
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "equalEarth"
+  },
+  "params": [
+    {
+      "name": "minPct",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 80,
+        "step": 5,
+        "name": "Highlight countries where at least this % shop online: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/world.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.CONTINENT !== 'Antarctica'"
+        },
+        {
+          "lookup": "properties.ADM0_A3",
+          "from": {
+            "data": {
+              "url": "data/findex_online_2021.csv",
+              "format": {
+                "parse": {
+                  "pct_bought_online": "number"
+                }
+              }
+            },
+            "key": "iso3",
+            "fields": [
+              "country",
+              "pct_bought_online",
+              "region",
+              "survey_year"
+            ]
+          }
+        },
+        {
+          "calculate": "isValid(datum.pct_bought_online) ? toNumber(datum.pct_bought_online) : null",
+          "as": "pct"
+        },
+        {
+          "calculate": "isValid(datum.country) ? datum.country : datum.properties.NAME",
+          "as": "name"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "!isValid(datum.pct)",
+            "value": "#ebe8e2"
+          },
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              20,
+              40,
+              60,
+              80
+            ],
+            "range": [
+              "#f3ede2",
+              "#e0d2b8",
+              "#c4ab83",
+              "#9a7d52",
+              "#5e4a2e"
+            ]
+          },
+          "legend": {
+            "title": "% of adults (15+) who bought something online",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 180,
+            "titleLimit": 400
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": "!isValid(datum.pct) || datum.pct >= minPct",
+            "value": 1
+          },
+          "value": 0.15
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Country"
+          },
+          {
+            "field": "pct",
+            "title": "Bought online (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "region",
+            "title": "Region"
+          },
+          {
+            "field": "survey_year",
+            "title": "Survey year"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": -38,
+            "lat": 28,
+            "t": "Norway & Denmark\nlead: 87%"
+          },
+          {
+            "lon": 134,
+            "lat": -47,
+            "t": "Australia: 77%"
+          },
+          {
+            "lon": 78,
+            "lat": 4,
+            "t": "India: 8%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#e8590c",
+        "align": "center",
+        "dy": -4,
+        "lineBreak": "\n"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

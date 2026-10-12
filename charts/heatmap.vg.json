@@ -1,0 +1,208 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Every year peaks in November–December",
+    "subtitle": "Each cell vs that year's monthly average. Nov–Dec outlined"
+  },
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/abs_online_monthly.csv",
+    "format": {
+      "parse": {
+        "year": "number",
+        "online_total_m": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year >= 2014 && datum.year <= 2024"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "mean",
+          "field": "online_total_m",
+          "as": "year_mean"
+        }
+      ],
+      "groupby": [
+        "year"
+      ]
+    },
+    {
+      "calculate": "(datum.online_total_m / datum.year_mean - 1) * 100",
+      "as": "vs_avg"
+    },
+    {
+      "calculate": "datum.online_total_m / 1000",
+      "as": "sales_bn"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5,
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
+          "title": null,
+          "axis": {
+            "orient": "top",
+            "ticks": false,
+            "domain": false,
+            "labelAngle": 0,
+            "labelExpr": "substring(datum.label, 0, 1)"
+          }
+        },
+        "y": {
+          "field": "year",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false
+          }
+        },
+        "color": {
+          "field": "vs_avg",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -40,
+              0,
+              40
+            ],
+            "range": [
+              "#5f7d8c",
+              "#f4efe7",
+              "#b8430a"
+            ],
+            "clamp": true
+          },
+          "legend": {
+            "title": "% vs that year's monthly average",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 220,
+            "labelExpr": "(datum.value > 0 ? '+' : '') + datum.value + '%'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "month"
+          },
+          {
+            "field": "year",
+            "type": "ordinal"
+          },
+          {
+            "field": "sales_bn",
+            "title": "Online sales ($B)",
+            "format": "$.2f"
+          },
+          {
+            "field": "vs_avg",
+            "title": "vs year average (%)",
+            "format": "+.0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.month === 'Nov' || datum.month === 'Dec'"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": null,
+        "stroke": "#1f2328",
+        "strokeWidth": 1.2,
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ]
+        },
+        "y": {
+          "field": "year",
+          "type": "ordinal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

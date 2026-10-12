@@ -1,0 +1,243 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Department stores grew fastest",
+    "subtitle": "Online spend 2024 → 2025 ($B). Hover a line"
+  },
+  "width": "container",
+  "height": 340,
+  "data": {
+    "url": "data/auspost_categories_2025.csv",
+    "format": {
+      "parse": {
+        "spend_2025_bn": "number",
+        "growth_pct": "number",
+        "spend_2024_bn": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "category",
+        "oneOf": [
+          "Online marketplaces",
+          "Food & liquor",
+          "Fashion & apparel",
+          "Consumer electronics",
+          "Department stores"
+        ]
+      }
+    },
+    {
+      "fold": [
+        "spend_2024_bn",
+        "spend_2025_bn"
+      ],
+      "as": [
+        "yr",
+        "spend"
+      ]
+    },
+    {
+      "calculate": "datum.yr === 'spend_2024_bn' ? '2024' : '2025'",
+      "as": "Year"
+    },
+    {
+      "calculate": "datum.category === 'Department stores'",
+      "as": "hl"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": null,
+      "scale": {
+        "range": [
+          40,
+          115
+        ]
+      },
+      "axis": {
+        "labelAngle": 0,
+        "orient": "top",
+        "domain": false,
+        "ticks": false,
+        "labelFontWeight": 700,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "spend",
+      "type": "quantitative",
+      "title": "Online spend ($B)",
+      "scale": {
+        "domain": [
+          2,
+          20
+        ]
+      },
+      "axis": null
+    },
+    "detail": {
+      "field": "category"
+    },
+    "color": {
+      "condition": [
+        {
+          "param": "hoverCat",
+          "empty": false,
+          "value": "#1f2328"
+        },
+        {
+          "test": "datum.hl",
+          "value": "#e8590c"
+        }
+      ],
+      "value": "#b9ae9c"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5
+      },
+      "params": [
+        {
+          "name": "hoverCat",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "fields": [
+              "category"
+            ],
+            "clear": "mouseout"
+          }
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 70,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "category"
+          },
+          {
+            "field": "Year"
+          },
+          {
+            "field": "spend",
+            "format": "$.1f",
+            "title": "Spend ($B)"
+          },
+          {
+            "field": "growth_pct",
+            "title": "Growth (%)"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year === '2024'"
+        },
+        {
+          "calculate": "'$' + format(datum.spend, '.1f')",
+          "as": "lbl"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 10.5
+      },
+      "encoding": {
+        "text": {
+          "field": "lbl"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.hl",
+            "value": "#e8590c"
+          },
+          "value": "#6b7280"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year === '2025'"
+        },
+        {
+          "calculate": "'$' + format(datum.spend, '.1f') + ' ' + {'Online marketplaces':'Marketplaces','Food & liquor':'Food & liquor','Fashion & apparel':'Fashion','Home & garden':'Home & garden','Consumer electronics':'Electronics','Hobbies & recreation':'Hobbies','Department stores':'Dept stores','Health & beauty':'Health & beauty','Books, stationery & media':'Books & media'}[datum.category] + ' +' + datum.growth_pct + '%'",
+          "as": "lbl"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 10.5
+      },
+      "encoding": {
+        "text": {
+          "field": "lbl"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.hl",
+            "value": "#e8590c"
+          },
+          "value": "#1f2328"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Online retail sales in Australia, 2013–2025",
+    "subtitle": "ABS monthly online retail turnover (original series)"
+  },
+  "data": {
+    "url": "data/abs_online_monthly.csv",
+    "format": {
+      "parse": {
+        "date": "date",
+        "online_total_m": "number",
+        "online_share_pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.online_total_m / 1000",
+      "as": "sales_bn"
+    }
+  ],
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 260,
+      "layer": [
+        {
+          "data": {
+            "values": [
+              {
+                "s": "2020-03-01",
+                "e": "2021-10-31"
+              }
+            ]
+          },
+          "mark": {
+            "type": "rect",
+            "color": "#0e8a7e",
+            "opacity": 0.09,
+            "clip": true
+          },
+          "encoding": {
+            "x": {
+              "field": "s",
+              "type": "temporal",
+              "scale": {
+                "domain": {
+                  "param": "brush"
+                }
+              }
+            },
+            "x2": {
+              "field": "e"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "area",
+            "color": "#e3f1ee",
+            "opacity": 0.9,
+            "clip": true
+          },
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "scale": {
+                "domain": {
+                  "param": "brush"
+                }
+              },
+              "title": null,
+              "axis": {
+                "format": "%Y",
+                "tickCount": "year",
+                "grid": false
+              }
+            },
+            "y": {
+              "field": "sales_bn",
+              "type": "quantitative",
+              "title": "Online sales ($ billion / month)",
+              "axis": {
+                "format": "$.0f",
+                "tickCount": 4
+              },
+              "scale": {
+                "domain": [
+                  0,
+                  6.6
+                ]
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "line",
+            "color": "#3f444b",
+            "strokeWidth": 1.8,
+            "clip": true,
+            "point": {
+              "size": 14,
+              "color": "#3f444b",
+              "opacity": 0.001
+            }
+          },
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "scale": {
+                "domain": {
+                  "param": "brush"
+                }
+              }
+            },
+            "y": {
+              "field": "sales_bn",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "date",
+                "type": "temporal",
+                "format": "%B %Y",
+                "title": "Month"
+              },
+              {
+                "field": "sales_bn",
+                "format": "$.2f",
+                "title": "Online sales ($B)"
+              },
+              {
+                "field": "online_share_pct",
+                "title": "Share of all retail (%)"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "d": "2020-02-10",
+                "y": 5.2,
+                "t": "COVID lockdowns ▸\nonline share of retail more\nthan doubled: 6.3% → 15.3%\n(Jan 2020 → Sep 2021)"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "color": "#0e8a7e",
+            "fontWeight": 700,
+            "fontSize": 11,
+            "lineBreak": "\n",
+            "align": "right",
+            "baseline": "top",
+            "dx": -6,
+            "clip": true
+          },
+          "encoding": {
+            "x": {
+              "field": "d",
+              "type": "temporal",
+              "scale": {
+                "domain": {
+                  "param": "brush"
+                }
+              }
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "d": "2025-05-01",
+                "y": 6.25,
+                "t": "Record month: $5.3B (Dec 2024) ▾"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "color": "#3f444b",
+            "fontWeight": 600,
+            "fontSize": 10.5,
+            "align": "right",
+            "clip": true
+          },
+          "encoding": {
+            "x": {
+              "field": "d",
+              "type": "temporal",
+              "scale": {
+                "domain": {
+                  "param": "brush"
+                }
+              }
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ],
+      "resolve": {
+        "scale": {
+          "y": "shared"
+        }
+      }
+    },
+    {
+      "width": "container",
+      "height": 50,
+      "mark": {
+        "type": "area",
+        "color": "#dcdee1"
+      },
+      "params": [
+        {
+          "name": "brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": "↔ Drag across this strip to zoom the chart above",
+          "axis": {
+            "format": "%Y",
+            "tickCount": "year",
+            "titleFontWeight": 400,
+            "titleColor": "#6b7280"
+          }
+        },
+        "y": {
+          "field": "sales_bn",
+          "type": "quantitative",
+          "axis": {
+            "tickCount": 2,
+            "grid": false,
+            "title": null,
+            "labels": false
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#16181d",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#16181d",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e5e1",
+      "domainColor": "#cdd0d4",
+      "tickColor": "#cdd0d4"
+    },
+    "legend": {
+      "labelColor": "#16181d",
+      "titleColor": "#16181d",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#16181d"
+    }
+  }
+}

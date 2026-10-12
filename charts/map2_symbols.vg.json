@@ -1,0 +1,270 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Online spend by state, 2025",
+    "subtitle": "Circle area = total online spend. Hover a circle for details"
+  },
+  "width": "container",
+  "height": 340,
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "aus_states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#efe9de",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "url": "data/auspost_states_2025.csv",
+        "format": {
+          "parse": {
+            "spend_bn": "number",
+            "growth_pct": "number",
+            "population": "number",
+            "per_capita_aud": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "opacity": 0.85,
+            "stroke": "#ffffff",
+            "strokeWidth": 1.5
+          },
+          "params": [
+            {
+              "name": "hoverState",
+              "select": {
+                "type": "point",
+                "on": "mouseover",
+                "fields": [
+                  "state"
+                ],
+                "clear": "mouseout"
+              }
+            }
+          ],
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "size": {
+              "field": "spend_bn",
+              "type": "quantitative",
+              "scale": {
+                "range": [
+                  30,
+                  4200
+                ],
+                "domain": [
+                  0,
+                  27
+                ]
+              },
+              "legend": {
+                "title": "Online spend, 2025",
+                "values": [
+                  5,
+                  15,
+                  25
+                ],
+                "orient": "bottom",
+                "direction": "horizontal",
+                "symbolFillColor": "#ffffff",
+                "symbolStrokeColor": "#6b7280",
+                "labelExpr": "'$' + datum.label + 'B'"
+              }
+            },
+            "color": {
+              "condition": {
+                "test": "datum.state === 'NSW'",
+                "value": "#e8590c"
+              },
+              "value": "#a08b66"
+            },
+            "strokeWidth": {
+              "condition": {
+                "param": "hoverState",
+                "empty": false,
+                "value": 3
+              },
+              "value": 1.5
+            },
+            "stroke": {
+              "condition": {
+                "param": "hoverState",
+                "empty": false,
+                "value": "#1f2328"
+              },
+              "value": "#ffffff"
+            },
+            "tooltip": [
+              {
+                "field": "state_name",
+                "title": "State"
+              },
+              {
+                "field": "spend_bn",
+                "title": "Online spend ($B)",
+                "format": "$.1f"
+              },
+              {
+                "field": "growth_pct",
+                "title": "Growth vs 2024 (%)"
+              },
+              {
+                "field": "per_capita_aud",
+                "title": "Per person ($)",
+                "format": "$,.0f"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.spend_bn >= 5"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontWeight": 700,
+            "fontSize": 11,
+            "color": "#ffffff"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "state"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.spend_bn < 5"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontWeight": 600,
+            "fontSize": 10,
+            "color": "#1f2328",
+            "align": "left",
+            "dx": 8
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "state"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 128.5,
+            "lat": -37.2,
+            "t": "NSW: $26.4B, about\n1 in 3 online dollars"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "color": "#e8590c",
+        "fontWeight": 700,
+        "fontSize": 11,
+        "lineBreak": "\n"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

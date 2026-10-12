@@ -1,0 +1,150 @@
+iso3,country,region,income_group,survey_year,pct_bought_online
+AFG,Afghanistan,South Asia,Low income,2021,0.0
+ALB,Albania,Europe & Central Asia,Upper middle income,2021,17.3
+ARE,United Arab Emirates,High income,High income,2021,25.4
+ARG,Argentina,Latin America & Caribbean,Upper middle income,2021,32.2
+ARM,Armenia,Europe & Central Asia,Upper middle income,2021,15.6
+AUS,Australia,High income,High income,2021,77.4
+AUT,Austria,High income,High income,2021,63.9
+AZE,Azerbaijan,Europe & Central Asia,Upper middle income,2022,9.5
+BEL,Belgium,High income,High income,2021,68.3
+BEN,Benin,Sub-Saharan Africa,Lower middle income,2021,4.1
+BFA,Burkina Faso,Sub-Saharan Africa,Low income,2021,4.8
+BGD,Bangladesh,South Asia,Lower middle income,2021,3.0
+BGR,Bulgaria,Europe & Central Asia,Upper middle income,2021,38.9
+BIH,Bosnia and Herzegovina,Europe & Central Asia,Upper middle income,2021,30.6
+BOL,Bolivia,Latin America & Caribbean,Lower middle income,2021,11.7
+BRA,Brazil,Latin America & Caribbean,Upper middle income,2021,34.7
+BWA,Botswana,Sub-Saharan Africa,Upper middle income,2022,8.8
+CAN,Canada,High income,High income,2021,70.1
+CHE,Switzerland,High income,High income,2021,50.6
+CHL,Chile,High income,High income,2021,48.9
+CHN,China,East Asia & Pacific,Upper middle income,2021,80.1
+CIV,Cote d'Ivoire,Sub-Saharan Africa,Lower middle income,2021,6.0
+CMR,Cameroon,Sub-Saharan Africa,Lower middle income,2021,5.2
+COD,"Congo, Dem. Rep.",Sub-Saharan Africa,Low income,2022,2.5
+COG,"Congo, Rep.",Sub-Saharan Africa,Lower middle income,2021,4.6
+COL,Colombia,Latin America & Caribbean,Upper middle income,2021,15.2
+COM,Comoros,Sub-Saharan Africa,Lower middle income,2022,1.7
+CRI,Costa Rica,Latin America & Caribbean,Upper middle income,2021,23.1
+CYP,Cyprus,High income,High income,2021,46.4
+CZE,Czechia,High income,High income,2021,74.7
+DEU,Germany,High income,High income,2021,59.6
+DNK,Denmark,High income,High income,2021,86.6
+DOM,Dominican Republic,Latin America & Caribbean,Upper middle income,2021,7.7
+DZA,Algeria,Middle East & North Africa,Lower middle income,2021,8.2
+EAP,East Asia & Pacific (excluding high income),,,2021,64.9
+ECA,Europe & Central Asia (excluding high income),,,2021,27.5
+ECU,Ecuador,Latin America & Caribbean,Upper middle income,2021,13.4
+EGY,"Egypt, Arab Rep.",Middle East & North Africa,Lower middle income,2021,2.9
+ESP,Spain,High income,High income,2021,57.8
+EST,Estonia,High income,High income,2021,68.5
+ETH,Ethiopia,Sub-Saharan Africa,Low income,2022,1.6
+FIN,Finland,High income,High income,2021,70.4
+FRA,France,High income,High income,2021,52.6
+GAB,Gabon,Sub-Saharan Africa,Upper middle income,2021,10.1
+GBR,United Kingdom,High income,High income,2021,64.4
+GEO,Georgia,Europe & Central Asia,Upper middle income,2021,15.0
+GHA,Ghana,Sub-Saharan Africa,Lower middle income,2021,8.6
+GIN,Guinea,Sub-Saharan Africa,Low income,2021,4.0
+GMB,"Gambia, The",Sub-Saharan Africa,Low income,2022,3.8
+GRC,Greece,High income,High income,2021,61.3
+GTM,Guatemala,Latin America & Caribbean,Upper middle income,2022,8.6
+HKG,"Hong Kong SAR, China",High income,High income,2021,60.9
+HND,Honduras,Latin America & Caribbean,Lower middle income,2021,8.0
+HRV,Croatia,High income,High income,2021,44.0
+HUN,Hungary,High income,High income,2021,56.1
+IDN,Indonesia,East Asia & Pacific,Lower middle income,2021,18.2
+IND,India,South Asia,Lower middle income,2021,8.3
+IRL,Ireland,High income,High income,2021,71.6
+IRN,"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2021,31.3
+IRQ,Iraq,Middle East & North Africa,Upper middle income,2021,20.8
+ISL,Iceland,High income,High income,2021,72.1
+ISR,Israel,High income,High income,2021,50.7
+ITA,Italy,High income,High income,2021,55.8
+JAM,Jamaica,Latin America & Caribbean,Upper middle income,2021,16.1
+JOR,Jordan,Middle East & North Africa,Upper middle income,2021,14.3
+JPN,Japan,High income,High income,2021,52.5
+KAZ,Kazakhstan,Europe & Central Asia,Upper middle income,2021,38.1
+KEN,Kenya,Sub-Saharan Africa,Lower middle income,2021,16.3
+KGZ,Kyrgyz Republic,Europe & Central Asia,Lower middle income,2021,10.0
+KHM,Cambodia,East Asia & Pacific,Lower middle income,2021,4.4
+KOR,"Korea, Rep.",High income,High income,2021,77.9
+LAC,Latin America & Caribbean (excluding high income),,,2021,24.7
+LAO,Lao PDR,East Asia & Pacific,Lower middle income,2021,9.7
+LBN,Lebanon,Middle East & North Africa,Lower middle income,2021,7.3
+LBR,Liberia,Sub-Saharan Africa,Low income,2021,7.1
+LIC,Low income,,,2021,3.0
+LKA,Sri Lanka,South Asia,Lower middle income,2021,11.1
+LMC,Lower middle income,,,2021,11.4
+LMY,Developing economies,,,2021,31.4
+LSO,Lesotho,Sub-Saharan Africa,Lower middle income,2022,18.3
+LTU,Lithuania,High income,High income,2021,52.5
+LVA,Latvia,High income,High income,2021,57.7
+MAR,Morocco,Middle East & North Africa,Lower middle income,2021,9.7
+MDA,Moldova,Europe & Central Asia,Upper middle income,2021,25.1
+MDG,Madagascar,Sub-Saharan Africa,Low income,2022,5.0
+MEX,Mexico,Latin America & Caribbean,Upper middle income,2022,21.8
+MKD,North Macedonia,Europe & Central Asia,Upper middle income,2021,30.5
+MLI,Mali,Sub-Saharan Africa,Low income,2021,3.4
+MLT,Malta,High income,High income,2021,52.3
+MMR,Myanmar,East Asia & Pacific,Lower middle income,2021,19.7
+MNA,Middle East & North Africa (excluding high income),,,2021,13.9
+MNG,Mongolia,East Asia & Pacific,Lower middle income,2021,42.4
+MOZ,Mozambique,Sub-Saharan Africa,Low income,2021,4.9
+MRT,Mauritania,Sub-Saharan Africa,Lower middle income,2022,4.0
+MUS,Mauritius,Sub-Saharan Africa,Upper middle income,2021,19.2
+MWI,Malawi,Sub-Saharan Africa,Low income,2021,1.8
+MYS,Malaysia,East Asia & Pacific,Upper middle income,2021,50.4
+NAM,Namibia,Sub-Saharan Africa,Upper middle income,2021,11.4
+NER,Niger,Sub-Saharan Africa,Low income,2022,2.5
+NGA,Nigeria,Sub-Saharan Africa,Lower middle income,2021,3.4
+NIC,Nicaragua,Latin America & Caribbean,Lower middle income,2021,6.9
+NLD,Netherlands,High income,High income,2021,75.6
+NOR,Norway,High income,High income,2021,86.6
+NPL,Nepal,South Asia,Lower middle income,2021,4.4
+NZL,New Zealand,High income,High income,2021,76.8
+PAK,Pakistan,South Asia,Lower middle income,2021,0.6
+PAN,Panama,High income,High income,2021,13.8
+PER,Peru,Latin America & Caribbean,Upper middle income,2021,16.4
+PHL,Philippines,East Asia & Pacific,Lower middle income,2021,35.9
+POL,Poland,High income,High income,2021,67.8
+PRT,Portugal,High income,High income,2021,41.1
+PRY,Paraguay,Latin America & Caribbean,Upper middle income,2021,6.6
+PSE,West Bank and Gaza,Middle East & North Africa,Lower middle income,2021,14.9
+ROU,Romania,High income,High income,2021,37.3
+RUS,Russian Federation,Europe & Central Asia,Upper middle income,2021,46.1
+SAS,South Asia,,,2021,6.9
+SAU,Saudi Arabia,High income,High income,2021,62.2
+SEN,Senegal,Sub-Saharan Africa,Lower middle income,2021,11.7
+SGP,Singapore,High income,High income,2021,58.4
+SLE,Sierra Leone,Sub-Saharan Africa,Low income,2021,1.3
+SLV,El Salvador,Latin America & Caribbean,Lower middle income,2021,8.5
+SRB,Serbia,Europe & Central Asia,Upper middle income,2021,33.5
+SSA,Sub-Saharan Africa (excluding high income),,,2021,5.5
+SSD,South Sudan,Sub-Saharan Africa,Low income,2021,0.5
+SVK,Slovak Republic,High income,High income,2021,67.8
+SVN,Slovenia,High income,High income,2021,55.0
+SWE,Sweden,High income,High income,2021,78.5
+SWZ,Eswatini,Sub-Saharan Africa,Lower middle income,2022,8.7
+TCD,Chad,Sub-Saharan Africa,Low income,2022,4.2
+TGO,Togo,Sub-Saharan Africa,Low income,2021,1.5
+THA,Thailand,East Asia & Pacific,Upper middle income,2021,51.0
+TJK,Tajikistan,Europe & Central Asia,Lower middle income,2021,1.3
+TUN,Tunisia,Middle East & North Africa,Lower middle income,2021,16.9
+TUR,Turkiye,Europe & Central Asia,Upper middle income,2021,30.3
+TWN,"Taiwan, China",High income,High income,2021,56.1
+TZA,Tanzania,Sub-Saharan Africa,Lower middle income,2021,5.9
+UGA,Uganda,Sub-Saharan Africa,Low income,2021,9.0
+UKR,Ukraine,Europe & Central Asia,Lower middle income,2021,41.9
+UMC,Upper middle income,,,2021,59.6
+URY,Uruguay,High income,High income,2021,31.7
+USA,United States,High income,High income,2021,74.7
+UZB,Uzbekistan,Europe & Central Asia,Lower middle income,2021,5.9
+VEN,"Venezuela, RB",Latin America & Caribbean,Upper middle income,2021,19.5
+VNM,Viet Nam,East Asia & Pacific,Lower middle income,2022,40.4
+XKX,Kosovo,Europe & Central Asia,Upper middle income,2021,29.4
+YEM,"Yemen, Rep.",Middle East & North Africa,Low income,2022,1.7
+ZAF,South Africa,Sub-Saharan Africa,Upper middle income,2021,13.9
+ZMB,Zambia,Sub-Saharan Africa,Low income,2021,2.3
+ZWE,Zimbabwe,Sub-Saharan Africa,Lower middle income,2021,2.5

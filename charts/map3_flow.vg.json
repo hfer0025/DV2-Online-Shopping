@@ -1,0 +1,343 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where Australians buy from overseas",
+    "subtitle": "Line width = % of Australian cross-border shoppers who buy from each country (DHL, 2024). Hover a route"
+  },
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -150,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/world.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.CONTINENT !== 'Antarctica'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.4
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.properties.ADM0_A3 === 'AUS'",
+            "value": "#c4ab83"
+          },
+          "value": "#ece8e1"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/dhl_flow_routes.csv",
+        "format": {
+          "parse": {
+            "step": "number",
+            "lon": "number",
+            "lat": "number",
+            "pct_shoppers": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "line",
+        "strokeCap": "round",
+        "opacity": 0.85
+      },
+      "params": [
+        {
+          "name": "hoverRoute",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "fields": [
+              "origin"
+            ],
+            "clear": "mouseout"
+          }
+        }
+      ],
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "detail": {
+          "field": "origin"
+        },
+        "order": {
+          "field": "step",
+          "type": "quantitative"
+        },
+        "strokeWidth": {
+          "field": "pct_shoppers",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              60
+            ],
+            "range": [
+              0,
+              11
+            ]
+          },
+          "legend": {
+            "title": "% of Australian cross-border shoppers",
+            "values": [
+              20,
+              40,
+              55
+            ],
+            "orient": "bottom",
+            "direction": "horizontal",
+            "titleLimit": 400,
+            "labelExpr": "datum.label + '%'"
+          }
+        },
+        "color": {
+          "condition": [
+            {
+              "param": "hoverRoute",
+              "empty": false,
+              "value": "#1f2328"
+            },
+            {
+              "test": "datum.origin === 'United States'",
+              "value": "#e8590c"
+            }
+          ],
+          "value": "#9a7d52"
+        },
+        "tooltip": [
+          {
+            "field": "origin",
+            "title": "Buys from"
+          },
+          {
+            "field": "pct_shoppers",
+            "title": "% of shoppers"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/dhl_origins.csv",
+        "format": {
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "pct_shoppers": "number"
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "size": 45,
+            "color": "#1f2328",
+            "opacity": 1
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.origin !== 'Germany' && datum.origin !== 'United Kingdom'"
+            },
+            {
+              "calculate": "datum.origin + ' ' + datum.pct_shoppers + '%'",
+              "as": "lbl"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontWeight": 700,
+            "fontSize": 11,
+            "dy": 14
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "lbl"
+            },
+            "color": {
+              "condition": {
+                "test": "datum.origin === 'United States'",
+                "value": "#e8590c"
+              },
+              "value": "#1f2328"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.origin === 'United Kingdom'"
+            },
+            {
+              "calculate": "'UK ' + datum.pct_shoppers + '%'",
+              "as": "lbl"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontWeight": 700,
+            "fontSize": 11,
+            "align": "right",
+            "dx": -7,
+            "dy": -6,
+            "color": "#1f2328"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "lbl"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.origin === 'Germany'"
+            },
+            {
+              "calculate": "datum.origin + ' ' + datum.pct_shoppers + '%'",
+              "as": "lbl"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontWeight": 700,
+            "fontSize": 11,
+            "align": "left",
+            "dx": 7,
+            "dy": 10,
+            "color": "#1f2328"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "lbl"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 134,
+            "lat": -25.5
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 120,
+        "color": "#e8590c",
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

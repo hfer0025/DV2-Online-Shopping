@@ -1,0 +1,213 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "What we buy online",
+    "subtitle": "2025 online spend by category ($B). Full ring = $20B"
+  },
+  "width": 290,
+  "height": 290,
+  "data": {
+    "url": "data/auspost_categories_2025.csv",
+    "format": {
+      "parse": {
+        "spend_2025_bn": "number",
+        "growth_pct": "number",
+        "spend_2024_bn": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "spend_2025_bn",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "calculate": "26 + (9 - datum.rank) * 13",
+      "as": "r_in"
+    },
+    {
+      "calculate": "datum.r_in + 10",
+      "as": "r_out"
+    },
+    {
+      "calculate": "datum.spend_2025_bn / 20 * 1.5 * PI",
+      "as": "angle"
+    },
+    {
+      "calculate": "(datum.r_in + datum.r_out) / 2",
+      "as": "r_mid"
+    },
+    {
+      "calculate": "0",
+      "as": "t0"
+    },
+    {
+      "calculate": "1.5 * PI",
+      "as": "t_full"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "color": "#f1ece3",
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "theta": {
+          "field": "t0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "theta2": {
+          "field": "t_full"
+        },
+        "radius": {
+          "field": "r_in",
+          "type": "quantitative",
+          "scale": null
+        },
+        "radius2": {
+          "field": "r_out"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "arc",
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "theta": {
+          "field": "t0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "theta2": {
+          "field": "angle"
+        },
+        "radius": {
+          "field": "r_in",
+          "type": "quantitative",
+          "scale": null
+        },
+        "radius2": {
+          "field": "r_out"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.rank === 1",
+            "value": "#e8590c"
+          },
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#4a3f2e",
+              "#d9cfbd"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "category",
+            "title": "Category"
+          },
+          {
+            "field": "spend_2025_bn",
+            "title": "Spend 2025 ($B)",
+            "format": "$.1f"
+          },
+          {
+            "field": "growth_pct",
+            "title": "Growth (%)"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -5,
+        "fontSize": 10
+      },
+      "encoding": {
+        "theta": {
+          "field": "t0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "radius": {
+          "field": "r_mid",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "label"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.rank === 1",
+            "value": "#e8590c"
+          },
+          "value": "#1f2328"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "{'Online marketplaces':'Marketplaces','Food & liquor':'Food & liquor','Fashion & apparel':'Fashion','Home & garden':'Home & garden','Consumer electronics':'Electronics','Hobbies & recreation':'Hobbies','Department stores':'Dept stores','Health & beauty':'Health & beauty','Books, stationery & media':'Books & media'}[datum.category] + '  $' + format(datum.spend_2025_bn, '.1f') + 'B'",
+          "as": "label"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

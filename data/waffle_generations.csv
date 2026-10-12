@@ -1,0 +1,101 @@
+id,col,row,generation
+0,0,0,Millennials
+1,1,0,Millennials
+2,2,0,Millennials
+3,3,0,Millennials
+4,4,0,Millennials
+5,5,0,Millennials
+6,6,0,Millennials
+7,7,0,Millennials
+8,8,0,Millennials
+9,9,0,Millennials
+10,0,1,Millennials
+11,1,1,Millennials
+12,2,1,Millennials
+13,3,1,Millennials
+14,4,1,Millennials
+15,5,1,Millennials
+16,6,1,Millennials
+17,7,1,Millennials
+18,8,1,Millennials
+19,9,1,Millennials
+20,0,2,Millennials
+21,1,2,Millennials
+22,2,2,Millennials
+23,3,2,Millennials
+24,4,2,Millennials
+25,5,2,Millennials
+26,6,2,Millennials
+27,7,2,Millennials
+28,8,2,Millennials
+29,9,2,Millennials
+30,0,3,Millennials
+31,1,3,Millennials
+32,2,3,Millennials
+33,3,3,Millennials
+34,4,3,Millennials
+35,5,3,Millennials
+36,6,3,Gen X
+37,7,3,Gen X
+38,8,3,Gen X
+39,9,3,Gen X
+40,0,4,Gen X
+41,1,4,Gen X
+42,2,4,Gen X
+43,3,4,Gen X
+44,4,4,Gen X
+45,5,4,Gen X
+46,6,4,Gen X
+47,7,4,Gen X
+48,8,4,Gen X
+49,9,4,Gen X
+50,0,5,Gen X
+51,1,5,Gen X
+52,2,5,Gen X
+53,3,5,Gen X
+54,4,5,Gen X
+55,5,5,Gen X
+56,6,5,Gen X
+57,7,5,Gen X
+58,8,5,Gen X
+59,9,5,Gen X
+60,0,6,Gen X
+61,1,6,Gen X
+62,2,6,Gen X
+63,3,6,Gen Z
+64,4,6,Gen Z
+65,5,6,Gen Z
+66,6,6,Gen Z
+67,7,6,Gen Z
+68,8,6,Gen Z
+69,9,6,Gen Z
+70,0,7,Gen Z
+71,1,7,Gen Z
+72,2,7,Gen Z
+73,3,7,Gen Z
+74,4,7,Gen Z
+75,5,7,Gen Z
+76,6,7,Gen Z
+77,7,7,Gen Z
+78,8,7,Gen Z
+79,9,7,Gen Z
+80,0,8,Gen Z
+81,1,8,Baby Boomers
+82,2,8,Baby Boomers
+83,3,8,Baby Boomers
+84,4,8,Baby Boomers
+85,5,8,Baby Boomers
+86,6,8,Baby Boomers
+87,7,8,Baby Boomers
+88,8,8,Baby Boomers
+89,9,8,Baby Boomers
+90,0,9,Baby Boomers
+91,1,9,Baby Boomers
+92,2,9,Baby Boomers
+93,3,9,Baby Boomers
+94,4,9,Baby Boomers
+95,5,9,Baby Boomers
+96,6,9,Builders
+97,7,9,Builders
+98,8,9,Builders
+99,9,9,Builders

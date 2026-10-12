@@ -1,0 +1,326 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Cheaper prices pull, slow delivery pushes back",
+    "subtitle": "Top 3 reasons and barriers for buying from overseas sites"
+  },
+  "width": "container",
+  "height": 250,
+  "data": {
+    "url": "data/dhl_reasons_barriers.csv",
+    "format": {
+      "parse": {
+        "pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "row"
+        }
+      ],
+      "groupby": [
+        "type"
+      ],
+      "sort": [
+        {
+          "field": "pct",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.type === 'Reason' ? -datum.pct : datum.pct",
+      "as": "signed"
+    },
+    {
+      "calculate": "datum.pct + '%'",
+      "as": "pct_lbl"
+    },
+    {
+      "calculate": "datum.row === 1 && datum.type === 'Reason'",
+      "as": "hl"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {
+        "paddingInner": 0.55,
+        "paddingOuter": 0.5
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "signed",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -70,
+              70
+            ]
+          },
+          "axis": {
+            "labelExpr": "abs(datum.value) + '%'",
+            "values": [
+              -60,
+              -40,
+              -20,
+              0,
+              20,
+              40,
+              60
+            ],
+            "grid": false,
+            "title": "% of Australian cross-border shoppers"
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.hl",
+            "value": "#e8590c"
+          },
+          "field": "type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Reason",
+              "Barrier"
+            ],
+            "range": [
+              "#a08b66",
+              "#4a3f2e"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "type"
+          },
+          {
+            "field": "item"
+          },
+          {
+            "field": "pct",
+            "title": "%"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.type === 'Reason'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -4,
+        "dy": -19,
+        "fontSize": 11.5
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        },
+        "text": {
+          "field": "item"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.hl",
+            "value": "#e8590c"
+          },
+          "value": "#1f2328"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.type === 'Barrier'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 4,
+        "dy": -19,
+        "fontSize": 11.5
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        },
+        "text": {
+          "field": "item"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.type === 'Reason'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "align": "right",
+        "dx": -5
+      },
+      "encoding": {
+        "x": {
+          "field": "signed",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "pct_lbl"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.hl",
+            "value": "#e8590c"
+          },
+          "value": "#1f2328"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.type === 'Barrier'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "align": "left",
+        "dx": 5,
+        "color": "#1f2328"
+      },
+      "encoding": {
+        "x": {
+          "field": "signed",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "pct_lbl"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": -35,
+            "t": "◀  REASONS TO BUY"
+          },
+          {
+            "x": 35,
+            "t": "BARRIERS  ▶"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#6b7280",
+        "baseline": "bottom"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": -4
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#1f2328"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": 250
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}

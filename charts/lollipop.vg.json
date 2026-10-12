@@ -1,0 +1,257 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "…but per person, Canberra leads",
+    "subtitle": "Online spend ÷ population. Dashed line = Australian average ($2,958)"
+  },
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/auspost_states_2025.csv",
+    "format": {
+      "parse": {
+        "spend_bn": "number",
+        "growth_pct": "number",
+        "population": "number",
+        "per_capita_aud": "number",
+        "lon": "number",
+        "lat": "number"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "y": {
+          "field": "state_name",
+          "type": "nominal",
+          "sort": {
+            "field": "per_capita_aud",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 11
+          }
+        },
+        "x": {
+          "field": "per_capita_aud",
+          "type": "quantitative",
+          "title": "Online spend per person, 2025 ($)",
+          "axis": {
+            "format": "$,.0f",
+            "tickCount": 5
+          },
+          "scale": {
+            "domain": [
+              0,
+              4000
+            ]
+          }
+        },
+        "x2": {
+          "datum": 0
+        },
+        "color": {
+          "condition": {
+            "test": "datum.state === 'ACT'",
+            "value": "#e8590c"
+          },
+          "value": "#d9cfbd"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 140,
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "state_name",
+          "type": "nominal",
+          "sort": {
+            "field": "per_capita_aud",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 11
+          }
+        },
+        "x": {
+          "field": "per_capita_aud",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.state === 'ACT'",
+            "value": "#e8590c"
+          },
+          "value": "#4a3f2e"
+        },
+        "tooltip": [
+          {
+            "field": "state_name",
+            "title": "State"
+          },
+          {
+            "field": "per_capita_aud",
+            "title": "Per person",
+            "format": "$,.0f"
+          },
+          {
+            "field": "spend_bn",
+            "title": "Total ($B)"
+          },
+          {
+            "field": "population",
+            "format": ",",
+            "title": "Population"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 11
+      },
+      "encoding": {
+        "y": {
+          "field": "state_name",
+          "type": "nominal",
+          "sort": {
+            "field": "per_capita_aud",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 11
+          }
+        },
+        "x": {
+          "field": "per_capita_aud",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "per_capita_aud",
+          "format": "$,.0f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.state === 'ACT'",
+            "value": "#e8590c"
+          },
+          "value": "#6b7280"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 2958
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "color": "#6b7280"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": 300
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 3472
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#e8590c",
+        "text": "ACT: small population, biggest spenders ▾"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": -2
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#1f2328",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#6b7280",
+      "offset": 12
+    },
+    "axis": {
+      "labelColor": "#6b7280",
+      "titleColor": "#1f2328",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "gridColor": "#e7e2d8",
+      "domainColor": "#cfc8bb",
+      "tickColor": "#cfc8bb"
+    },
+    "legend": {
+      "labelColor": "#1f2328",
+      "titleColor": "#1f2328",
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "titleFontWeight": 600
+    },
+    "text": {
+      "font": "Inter",
+      "color": "#1f2328"
+    }
+  }
+}
