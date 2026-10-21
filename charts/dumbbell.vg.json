@@ -5,7 +5,7 @@
     "subtitle": "Developing economies, % of adults who bought online"
   },
   "width": "container",
-  "height": 380,
+  "height": 340,
   "data": {
     "url": "data/findex_dumbbell.csv",
     "format": {
@@ -71,9 +71,9 @@
         "color": {
           "condition": {
             "test": "datum.pct_2024 >= datum.pct_2021",
-            "value": "#c4ab83"
+            "value": "#c2bfb7"
           },
-          "value": "#d6d3cc"
+          "value": "#e6e2d9"
         }
       }
     },
@@ -98,7 +98,7 @@
         "type": "circle",
         "size": 90,
         "opacity": 1,
-        "stroke": "#5e4a2e",
+        "stroke": "#4a4740",
         "strokeWidth": 1
       },
       "encoding": {
@@ -116,7 +116,7 @@
             ],
             "range": [
               "#ffffff",
-              "#5e4a2e"
+              "#4a4740"
             ]
           },
           "legend": {
@@ -148,7 +148,7 @@
       "mark": {
         "type": "circle",
         "size": 110,
-        "color": "#e8590c"
+        "color": "#1e8a5a"
       },
       "encoding": {
         "x": {
@@ -167,7 +167,7 @@
         "type": "text",
         "align": "left",
         "dx": 10,
-        "color": "#e8590c",
+        "color": "#1e8a5a",
         "fontWeight": 700,
         "fontSize": 11
       },
@@ -195,7 +195,7 @@
           4,
           3
         ],
-        "color": "#4a3f2e"
+        "color": "#4a4740"
       },
       "encoding": {
         "x": {
@@ -206,7 +206,7 @@
           "value": 0
         },
         "y2": {
-          "value": 380
+          "value": 340
         }
       }
     },
@@ -225,7 +225,7 @@
         "baseline": "bottom",
         "fontSize": 10.5,
         "fontWeight": 600,
-        "color": "#4a3f2e",
+        "color": "#4a4740",
         "text": [
           "Australia",
           "(2021): 77%"
@@ -237,13 +237,13 @@
           "type": "quantitative"
         },
         "y": {
-          "value": 345
+          "value": 305
         }
       }
     }
   ],
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -252,31 +252,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }

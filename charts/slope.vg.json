@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Department stores grew fastest",
+    "text": "Dept stores outpaced the big categories",
     "subtitle": "Online spend 2024 → 2025 ($B). Hover a line"
   },
   "width": "container",
@@ -88,14 +88,14 @@
         {
           "param": "hoverCat",
           "empty": false,
-          "value": "#1f2328"
+          "value": "#222222"
         },
         {
           "test": "datum.hl",
-          "value": "#e8590c"
+          "value": "#1e8a5a"
         }
       ],
-      "value": "#b9ae9c"
+      "value": "#c2bfb7"
     }
   },
   "layer": [
@@ -167,7 +167,7 @@
         "color": {
           "condition": {
             "test": "datum.hl",
-            "value": "#e8590c"
+            "value": "#1e8a5a"
           },
           "value": "#6b7280"
         }
@@ -196,15 +196,15 @@
         "color": {
           "condition": {
             "test": "datum.hl",
-            "value": "#e8590c"
+            "value": "#1e8a5a"
           },
-          "value": "#1f2328"
+          "value": "#222222"
         }
       }
     }
   ],
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -213,31 +213,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }

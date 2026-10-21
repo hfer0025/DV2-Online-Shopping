@@ -1,103 +1,144 @@
 /* ============================================================
    Add to Cart — FIT3179 DV2
-   Name: Raneth Fernando
-   ID: 35550902
+   Look: big-number poster header + "receipt" palette.
+   Fonts: Archivo Black (headings), IBM Plex Sans (body), IBM Plex Mono (labels).
+   Colour: one green highlight; everything else warm neutral.
    ============================================================ */
 :root {
-  --ink: #1f2328;
-  --muted: #6b7280;
-  --accent: #e8590c;
-  --sand: #f6f2eb;      /* tinted section background */
-  --line: #e7e2d8;
-  --card: #ffffff;
-  --dark: #4a3f2e;
+  --ink: #222222;
+  --body: #3b3a36;
+  --muted: #6d6a63;
+  --accent: #1e8a5a;      /* till-printer green: the one highlight colour */
+  --accent-dark: #1b5e40;
+  --paper: #fffdf7;       /* receipt paper */
+  --band: #d9d4c7;        /* header + footer band */
+  --tint: #f5f1e6;        /* alternate section background */
+  --line: #d8d2c4;
   --maxw: 1240px;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--ink);
-  background: #fbfaf7;
+  background: var(--paper);
 }
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-strong { color: var(--accent); font-weight: 700; }
-a { color: var(--dark); }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+strong { color: var(--accent-dark); font-weight: 600; }
+a { color: var(--accent-dark); }
 
-/* ---------- Header ---------- */
-.hero {
-  background: var(--ink);
-  color: #fff;
-  padding: 56px 0 48px;
-  border-bottom: 6px solid var(--accent);
+/* ---------- Poster header ---------- */
+.poster { background: var(--band); padding: 60px 0 50px; border-bottom: 2px dashed #9c968a; }
+.poster-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+.big {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 150px; line-height: .85; letter-spacing: -.035em;
+  color: var(--accent-dark);
 }
-.hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: end; }
-.kicker { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #f4a06a; }
-h1 { margin: 0; font-size: 46px; line-height: 1.08; font-weight: 800; letter-spacing: -.025em; }
-.hero-sub { margin: 14px 0 0; font-size: 18px; color: #d1d5db; max-width: 560px; }
-.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.kpi { border: 1px solid rgba(255,255,255,.22); border-radius: 10px; padding: 16px 14px; background: rgba(255,255,255,.04); }
-.kpi-num { display: block; font-size: 30px; font-weight: 800; color: var(--accent); letter-spacing: -.02em; line-height: 1.1; }
-.kpi-label { display: block; margin-top: 6px; font-size: 13px; line-height: 1.35; color: #d1d5db; }
+.big-cap { margin: 16px 0 0; font-family: "Archivo", sans-serif; font-weight: 600; font-size: 17px; color: var(--body); }
+.big-cap b { color: var(--accent-dark); }
+.eyebrow {
+  margin: 0 0 12px; font-family: "IBM Plex Mono", monospace; font-size: 13px;
+  letter-spacing: .08em; text-transform: uppercase; color: #5e5b54;
+}
+h1 {
+  margin: 0; font-family: "Archivo Black", sans-serif; font-weight: 400;
+  font-size: 42px; line-height: 1.04; text-transform: uppercase; letter-spacing: -.01em;
+}
+.hero-sub { margin: 14px 0 0; font-size: 18px; color: var(--body); }
+.poster-stats {
+  margin: 18px 0 0; padding-top: 12px; border-top: 1px solid #9c968a;
+  font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--body);
+}
+.poster-stats span { color: var(--accent); margin: 0 6px; }
 
 /* ---------- Sections ---------- */
-.sec { padding: 64px 0; border-bottom: 1px solid var(--line); }
-.sec.tint { background: var(--sand); }
-.sec-head { display: flex; gap: 22px; align-items: flex-start; margin-bottom: 28px; }
-.sec-num { font-size: 15px; font-weight: 800; color: #fff; background: var(--accent); border-radius: 8px; padding: 6px 10px; margin-top: 6px; }
-h2 { margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
-.lede { margin: 10px 0 0; font-size: 17px; color: #374151; max-width: 860px; }
+.sec { padding: 56px 0 60px; border-bottom: 2px dashed var(--line); }
+.sec.tint { background: var(--tint); }
+.sec-head { margin-bottom: 26px; max-width: 900px; }
+.sec-num {
+  display: inline-block; margin: 0 0 10px; padding-top: 6px;
+  border-top: 3px solid var(--accent-dark);
+  font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--accent-dark);
+}
+h2 {
+  margin: 0; font-family: "Archivo Black", sans-serif; font-weight: 400;
+  font-size: 34px; line-height: 1.1; letter-spacing: -.01em;
+}
+.lede { margin: 12px 0 0; font-size: 17px; color: var(--body); }
 
-/* ---------- Grids + cards ---------- */
-.grid { display: grid; gap: 22px; }
+/* ---------- Grids + chart panels ---------- */
+.grid { display: grid; gap: 24px; align-items: stretch; }
 .g-60-40 { grid-template-columns: 1.5fr 1fr; }
-.g-45-55 { grid-template-columns: 1fr 1.1fr; }
-.g-3 { grid-template-columns: 1fr 1fr 1.15fr; }
-.card {
-  margin: 0;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 18px 16px 14px;
-  box-shadow: 0 1px 2px rgba(31,35,40,.04);
-  min-width: 0;
-}
-.vis { width: 100%; }
-.vis.center { display: flex; justify-content: center; }
-figcaption {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px dashed var(--line);
-  font-size: 14px;
-  color: #374151;
-}
-figcaption b { color: var(--accent); }
+.g-50-50 { grid-template-columns: 1fr 1fr; }
+.g-3 { grid-template-columns: 1fr 1fr 1fr; }
 
-/* Vega-Lite bound controls (slider, dropdown) */
-.vega-bindings { margin-top: 10px; font-size: 13px; color: var(--muted); }
+/* Each panel is a column: chart on top, text pinned to the bottom,
+   so panels in a row line up and no blank patch sits under a short chart. */
+.card {
+  margin: 0; min-width: 0;
+  display: flex; flex-direction: column;
+  background: #fff;
+  border-top: 3px solid var(--ink);
+  padding: 16px 18px 14px;
+}
+.vis { width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.vis.center { align-items: center; }
+.how {
+  margin: 12px 0 0; font-size: 14px; color: var(--body);
+}
+.how span, figcaption b:first-child {
+  font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.how span { color: var(--muted); }
+.how b { color: var(--accent-dark); }
+figcaption {
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  font-size: 14px; color: var(--body);
+}
+figcaption b { color: var(--accent-dark); }
+
+/* Vega-Lite controls (slider, dropdown) */
+.vega-bindings { margin-top: 8px; font-size: 13px; color: var(--muted); }
 .vega-bind { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .vega-bind input[type="range"] { accent-color: var(--accent); width: 180px; }
-.vega-bind select { font: inherit; padding: 4px 8px; border-radius: 6px; border: 1px solid #cfc8bb; background: #fff; }
+.vega-bind select { font: inherit; padding: 4px 8px; border: 1px solid #b3afa6; background: #fff; }
 .vega-embed { width: 100%; }
-.vega-embed summary { opacity: .5; }
+.vega-embed summary { opacity: .4; }
+
+/* ---------- Closing "receipt" ---------- */
+.closing { background: var(--paper); }
+.takeaways { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.takeaways div { border-top: 3px solid var(--ink); background: #fff; padding: 14px 16px 16px; }
+.takeaways span {
+  font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 600; color: var(--accent-dark);
+}
+.takeaways p { margin: 6px 0 0; font-size: 15px; color: var(--body); }
+.takeaways b { color: var(--accent-dark); }
 
 /* ---------- Footer ---------- */
-.foot { background: var(--ink); color: #d1d5db; padding: 44px 0 52px; font-size: 14px; }
-.foot h3 { color: #fff; margin: 0 0 10px; font-size: 16px; }
-.foot a { color: #f4a06a; }
+.foot { background: var(--band); color: var(--body); padding: 44px 0 52px; font-size: 14px; }
+.foot h3 {
+  margin: 0 0 10px; font-family: "IBM Plex Mono", monospace; font-size: 13px;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink);
+}
+.foot a { color: var(--accent-dark); }
 .foot ul { margin: 0; padding-left: 18px; }
 .foot li { margin-bottom: 6px; }
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
 .byline p { margin: 0 0 6px; }
-.muted { color: #9ca3af; }
-code { font-size: 13px; }
+.muted { color: var(--muted); }
+code { font-family: "IBM Plex Mono", monospace; font-size: 13px; }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 980px) {
-  .hero-grid, .g-60-40, .g-45-55, .g-3, .foot-grid { grid-template-columns: 1fr; }
-  h1 { font-size: 36px; }
+  .poster-grid, .g-60-40, .g-50-50, .g-3, .foot-grid, .takeaways { grid-template-columns: 1fr; }
+  .big { font-size: 96px; }
+  h1 { font-size: 32px; }
 }

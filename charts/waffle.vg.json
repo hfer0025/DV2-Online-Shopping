@@ -4,8 +4,8 @@
     "text": "Who spends the online dollar?",
     "subtitle": "Share of 2025 online spend by generation"
   },
-  "width": 210,
-  "height": 210,
+  "width": 250,
+  "height": 250,
   "data": {
     "url": "data/waffle_generations.csv",
     "format": {
@@ -69,22 +69,22 @@
           "Builders"
         ],
         "range": [
-          "#e8590c",
-          "#4a3f2e",
-          "#a08b66",
-          "#c9b99a",
-          "#e6dccb"
+          "#1e8a5a",
+          "#4a4740",
+          "#8f8a80",
+          "#c2bfb7",
+          "#dedad2"
         ]
       },
       "legend": {
-        "title": [
-          "1 square =",
-          "1% of $82.6B"
-        ],
-        "orient": "right",
+        "title": "1 square = 1% of $82.6B",
+        "orient": "bottom",
+        "direction": "horizontal",
+        "columns": 3,
         "labelFontSize": 12,
         "symbolType": "square",
-        "symbolSize": 160,
+        "symbolSize": 140,
+        "titleLimit": 300,
         "labelExpr": "{'Millennials':'Millennials 36%','Gen X':'Gen X 27%','Gen Z':'Gen Z 18%','Baby Boomers':'Boomers 15%','Builders':'Builders 4%'}[datum.label]"
       }
     },
@@ -107,7 +107,7 @@
     ]
   },
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -116,31 +116,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }

@@ -5,152 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add to Cart: How the World Shops Online</title>
 
-  <!-- Typography -->
+  <!-- Typography: Archivo Black (headings), IBM Plex Sans (body), IBM Plex Mono (labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Vega-Lite libraries  -->
+  <!-- Vega-Lite libraries (as in the Week 7 studio) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="kicker">FIT3179 Data Visualisation 2 · Online Shopping</p>
-      <h1>Add to Cart: How the World Shops Online</h1>
-      <p class="hero-sub">From global habits to Australian wallets: who buys online, when, what they buy, and where it comes from.</p>
+<!-- ============ HEADER: big-number poster ============ -->
+<header class="poster">
+  <div class="wrap poster-grid">
+    <div class="poster-num">
+      <div class="big">$82.6B</div>
+      <p class="big-cap">spent online by Australians in 2025, about <b>$3,000 for every person</b></p>
     </div>
-    <div class="kpis">
-      <div class="kpi"><span class="kpi-num">$82.6B</span><span class="kpi-label">spent online by Australians in 2025</span></div>
-      <div class="kpi"><span class="kpi-num">9.8M</span><span class="kpi-label">households (82%) shopped online</span></div>
-      <div class="kpi"><span class="kpi-num">+14%</span><span class="kpi-label">growth on 2024</span></div>
+    <div class="poster-title">
+      <p class="eyebrow">FIT3179 · Data Visualisation 2</p>
+      <h1>Add to Cart: How the World Shops Online</h1>
+      <p class="hero-sub">Who buys online, when, what they buy, and where it comes from.</p>
+      <p class="poster-stats">9.8M households <span>·</span> +14% on 2024 <span>·</span> 1 in 3 dollars from NSW</p>
     </div>
   </div>
 </header>
 
 <main>
 
-  <!-- ============ SECTION 1 ============ -->
+  <!-- ============ PART 01 ============ -->
   <section class="sec tint">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">01</span>
-        <div>
-          <h2>The Global Cart</h2>
-          <p class="lede">Online shopping is near-universal in some countries and rare in others. In 2021, <strong>77% of Australian adults</strong> bought something online, close to the Nordic leaders, while in much of South Asia and Africa fewer than 1 in 10 did.</p>
-        </div>
+        <p class="sec-num">Part 01</p>
+        <h2>The Global Cart</h2>
+        <p class="lede">Online shopping is near-universal in some countries and rare in others. In 2021, <strong>77% of Australian adults</strong> bought something online, close to the Nordic leaders, while in much of South Asia and Africa fewer than 1 in 10 did. The gap mostly follows income and internet access, but it is closing fast in emerging markets.</p>
       </div>
       <div class="grid g-60-40">
         <figure class="card">
           <div id="map1" class="vis"></div>
-          <figcaption><b>Key insight:</b> high-income countries cluster at the top. The slider shows how few countries pass 60%.</figcaption>
+          <p class="how"><span>How to read:</span> darker green means a higher share of adults bought online; grey means no data. Hover a country for its figure, and drag the slider to fade out countries below a threshold.</p>
+          <figcaption><b>Key insight:</b> high-income countries cluster at the top. Slide to 60% and only a handful of countries remain.</figcaption>
         </figure>
         <figure class="card">
           <div id="dumbbell" class="vis"></div>
+          <p class="how"><span>How to read:</span> each row is a country. The hollow dot is 2021, the filled dot is 2024. The dashed line marks Australia's 2021 level.</p>
           <figcaption><b>Key insight:</b> India doubled its online shoppers in three years, but most emerging markets are still far below Australia's 2021 level.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECTION 2 ============ -->
+  <!-- ============ PART 02 ============ -->
   <section class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">02</span>
-        <div>
-          <h2>Australia Logs On</h2>
-          <p class="lede">A decade of steady growth, then COVID lockdowns pushed online sales into a new normal. Annual online retail sales rose from <strong>$20.8B in 2019 to $49.9B in 2024</strong>, and every year November and December break records.</p>
-        </div>
+        <p class="sec-num">Part 02</p>
+        <h2>Australia Logs On</h2>
+        <p class="lede">A decade of steady growth, then COVID lockdowns pushed online sales into a new normal. Annual online retail sales rose from <strong>$20.8B in 2019 to $49.9B in 2024</strong>. Shoppers who were forced online in 2020 and 2021 mostly stayed, and every year the end-of-year sales season sets new records.</p>
       </div>
       <div class="grid g-60-40">
         <figure class="card">
           <div id="overview" class="vis"></div>
-          <figcaption><b>Key insight:</b> online's share of retail never fell back to pre-COVID levels: it is still around 12%, almost double early 2020.</figcaption>
+          <p class="how"><span>How to read:</span> the top chart shows online sales each month. Drag across the small strip underneath to zoom into a period, and <b>double-click the strip to reset</b>.</p>
+          <figcaption><b>Key insight:</b> online's share of retail never fell back to pre-COVID levels. It is still around 12%, almost double early 2020.</figcaption>
         </figure>
         <figure class="card">
           <div id="heatmap" class="vis"></div>
+          <p class="how"><span>How to read:</span> each row is a year and each column a month. Green means that month sold more than the year's average; brown means less.</p>
           <figcaption><b>Key insight:</b> from 2020 to 2023, Black Friday made November an even bigger month than Christmas December.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECTION 3 ============ -->
+  <!-- ============ PART 03 ============ -->
   <section class="sec tint">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">03</span>
-        <div>
-          <h2>Where in Australia</h2>
-          <p class="lede">The big eastern states spend the most in total: <strong>NSW alone spent $26.4B</strong>. But divide by population and the picture changes: Canberrans are the most active online shoppers, and the Northern Territory trails well behind.</p>
-        </div>
+        <p class="sec-num">Part 03</p>
+        <h2>Where in Australia</h2>
+        <p class="lede">The big eastern states spend the most in total: <strong>NSW alone spent $26.4B</strong>, about one in every three online dollars. But totals mostly reflect population. Divide by the number of people and the picture changes: Canberrans are the most active online shoppers, while the Northern Territory trails well behind.</p>
       </div>
-      <div class="grid g-45-55">
+      <div class="grid g-50-50">
         <figure class="card">
           <div id="map2" class="vis"></div>
-          <figcaption><b>Key insight:</b> WA grew fastest of all states (+18%), while ACT grew slowest (+10%).</figcaption>
+          <p class="how"><span>How to read:</span> each circle sits on a state, and its area shows total online spend in 2025. Hover a circle for growth and spend per person.</p>
+          <figcaption><b>Key insight:</b> WA grew fastest of all states (+18%), while the ACT grew slowest (+10%).</figcaption>
         </figure>
         <figure class="card">
           <div id="lollipop" class="vis"></div>
+          <p class="how"><span>How to read:</span> each dot shows what the average person in that state spent online in 2025. The dashed line is the national average.</p>
           <figcaption><b>Key insight:</b> the average Canberran spent <b>$3,472</b> online, nearly double a Territorian ($1,859).</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECTION 4 ============ -->
+  <!-- ============ PART 04 ============ -->
   <section class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">04</span>
-        <div>
-          <h2>What We Buy and Who Buys It</h2>
-          <p class="lede">Marketplaces like Amazon, eBay and Temu take the biggest slice. Department stores grew fastest of the big categories, and <strong>Millennials spend more than a third of every online dollar</strong>.</p>
-        </div>
+        <p class="sec-num">Part 04</p>
+        <h2>What We Buy and Who Buys It</h2>
+        <p class="lede">Marketplaces like Amazon, eBay and Temu take the biggest slice of online spending, ahead of groceries and fashion. Every category grew in 2025, with department stores up almost 20%. And <strong>Millennials spend more than a third of every online dollar</strong>, though the oldest shoppers are growing fastest.</p>
       </div>
       <div class="grid g-3">
         <figure class="card">
           <div id="radial" class="vis center"></div>
+          <p class="how"><span>How to read:</span> each ring is one category. The longer the arc, the more was spent; a full ring would be $20B.</p>
           <figcaption><b>Key insight:</b> marketplaces ($18.9B) now out-sell food &amp; liquor ($16B).</figcaption>
         </figure>
         <figure class="card">
           <div id="slope" class="vis"></div>
+          <p class="how"><span>How to read:</span> each line joins a category's 2024 spend (left) to 2025 (right). Steeper means faster growth. Hover a line to highlight it.</p>
           <figcaption><b>Key insight:</b> every category grew; department stores were up 19.5%.</figcaption>
         </figure>
         <figure class="card">
           <div id="waffle" class="vis center"></div>
+          <p class="how"><span>How to read:</span> 100 squares make up all $82.6B. Each square is 1%, coloured by generation. Use the dropdown to highlight one.</p>
           <figcaption><b>Key insight:</b> Builders (born before 1946) are the smallest group, but grew fastest (+16.9%).</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECTION 5 ============ -->
+  <!-- ============ PART 05 ============ -->
   <section class="sec tint">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">05</span>
-        <div>
-          <h2>Beyond Our Borders</h2>
-          <p class="lede"><strong>43% of Australian online shoppers buy from overseas</strong>, mostly from the USA and China. Lower prices pull them in; slow delivery and wanting to support local businesses hold them back.</p>
-        </div>
+        <p class="sec-num">Part 05</p>
+        <h2>Beyond Our Borders</h2>
+        <p class="lede"><strong>43% of Australian online shoppers buy from overseas</strong>, mostly from the USA and China. Lower prices and a wider range pull them in; slow delivery and wanting to support local businesses hold them back.</p>
       </div>
       <div class="grid g-60-40">
         <figure class="card">
           <div id="map3" class="vis"></div>
+          <p class="how"><span>How to read:</span> lines run from each country to Australia. Thicker lines mean a larger share of Australian cross-border shoppers buy from there. Hover a route to highlight it.</p>
           <figcaption><b>Key insight:</b> more than half of cross-border shoppers buy from the US, ahead of China (47%).</figcaption>
         </figure>
         <figure class="card">
           <div id="butterfly" class="vis"></div>
+          <p class="how"><span>How to read:</span> bars to the left are reasons to shop overseas; bars to the right are what holds people back. Longer bars mean more shoppers said so.</p>
           <figcaption><b>Key insight:</b> price is the biggest pull (54%); delivery time is the biggest barrier (49%).</figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="sec closing">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-num">The receipt</p>
+        <h2>What It All Means</h2>
+      </div>
+      <div class="takeaways">
+        <div><span>01</span><p>Online shopping is now normal for most Australians. <b>82% of households</b> shopped online in 2025.</p></div>
+        <div><span>02</span><p>COVID was the turning point. Online's share of retail <b>doubled</b> and never went back.</p></div>
+        <div><span>03</span><p>Where you live matters. Per person, <b>Canberrans spend almost twice</b> as much as Territorians.</p></div>
+        <div><span>04</span><p>Shopping is global. <b>43% buy from overseas</b>, mostly to save money, despite slower delivery.</p></div>
       </div>
     </div>
   </section>
@@ -172,7 +189,7 @@
       </ul>
     </div>
     <div class="byline">
-      <p><b>Author:</b> Raneth</p>
+      <p><b>Author:</b> Raneth Fernando</p>
       <p><b>Student ID:</b> 35550902</p>
       <p>FIT3179 Data Visualisation · Monash University · 2026</p>
       <p class="muted">Built with Vega-Lite. Each chart's JSON is in <code>/charts</code>.</p>

@@ -4,8 +4,8 @@
     "text": "What we buy online",
     "subtitle": "2025 online spend by category ($B). Full ring = $20B"
   },
-  "width": 290,
-  "height": 290,
+  "width": 310,
+  "height": 330,
   "data": {
     "url": "data/auspost_categories_2025.csv",
     "format": {
@@ -32,11 +32,11 @@
       ]
     },
     {
-      "calculate": "26 + (9 - datum.rank) * 13",
+      "calculate": "28 + (9 - datum.rank) * 14",
       "as": "r_in"
     },
     {
-      "calculate": "datum.r_in + 10",
+      "calculate": "datum.r_in + 11",
       "as": "r_out"
     },
     {
@@ -60,7 +60,7 @@
     {
       "mark": {
         "type": "arc",
-        "color": "#f1ece3",
+        "color": "#efeeeb",
         "cornerRadius": 2
       },
       "encoding": {
@@ -107,14 +107,14 @@
         "color": {
           "condition": {
             "test": "datum.rank === 1",
-            "value": "#e8590c"
+            "value": "#1e8a5a"
           },
           "field": "rank",
           "type": "quantitative",
           "scale": {
             "range": [
-              "#4a3f2e",
-              "#d9cfbd"
+              "#4a4740",
+              "#dedad2"
             ]
           },
           "legend": null
@@ -160,9 +160,9 @@
         "color": {
           "condition": {
             "test": "datum.rank === 1",
-            "value": "#e8590c"
+            "value": "#1e8a5a"
           },
-          "value": "#1f2328"
+          "value": "#222222"
         }
       },
       "transform": [
@@ -174,7 +174,7 @@
     }
   ],
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -183,31 +183,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }

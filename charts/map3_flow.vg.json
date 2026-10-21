@@ -37,9 +37,9 @@
         "color": {
           "condition": {
             "test": "datum.properties.ADM0_A3 === 'AUS'",
-            "value": "#c4ab83"
+            "value": "#c3e2d1"
           },
-          "value": "#ece8e1"
+          "value": "#ebeae7"
         }
       }
     },
@@ -120,14 +120,14 @@
             {
               "param": "hoverRoute",
               "empty": false,
-              "value": "#1f2328"
+              "value": "#222222"
             },
             {
               "test": "datum.origin === 'United States'",
-              "value": "#e8590c"
+              "value": "#1e8a5a"
             }
           ],
-          "value": "#9a7d52"
+          "value": "#b3afa6"
         },
         "tooltip": [
           {
@@ -157,7 +157,7 @@
           "mark": {
             "type": "circle",
             "size": 45,
-            "color": "#1f2328",
+            "color": "#222222",
             "opacity": 1
           },
           "encoding": {
@@ -202,9 +202,9 @@
             "color": {
               "condition": {
                 "test": "datum.origin === 'United States'",
-                "value": "#e8590c"
+                "value": "#1e8a5a"
               },
-              "value": "#1f2328"
+              "value": "#222222"
             }
           }
         },
@@ -225,7 +225,7 @@
             "align": "right",
             "dx": -7,
             "dy": -6,
-            "color": "#1f2328"
+            "color": "#222222"
           },
           "encoding": {
             "longitude": {
@@ -258,7 +258,7 @@
             "align": "left",
             "dx": 7,
             "dy": 10,
-            "color": "#1f2328"
+            "color": "#222222"
           },
           "encoding": {
             "longitude": {
@@ -288,7 +288,7 @@
       "mark": {
         "type": "circle",
         "size": 120,
-        "color": "#e8590c",
+        "color": "#1e8a5a",
         "opacity": 1
       },
       "encoding": {
@@ -304,7 +304,7 @@
     }
   ],
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -313,31 +313,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }

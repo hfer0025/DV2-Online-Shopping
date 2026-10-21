@@ -73,7 +73,7 @@
         "color": {
           "condition": {
             "test": "!isValid(datum.pct)",
-            "value": "#ebe8e2"
+            "value": "#ebeae7"
           },
           "field": "pct",
           "type": "quantitative",
@@ -86,11 +86,11 @@
               80
             ],
             "range": [
-              "#f3ede2",
-              "#e0d2b8",
-              "#c4ab83",
-              "#9a7d52",
-              "#5e4a2e"
+              "#eef6f1",
+              "#c3e2d1",
+              "#86c4a5",
+              "#3f9a70",
+              "#1b5e40"
             ]
           },
           "legend": {
@@ -154,7 +154,7 @@
         "type": "text",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#e8590c",
+        "color": "#1e8a5a",
         "align": "center",
         "dy": -4,
         "lineBreak": "\n"
@@ -175,7 +175,7 @@
     }
   ],
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -184,31 +184,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }

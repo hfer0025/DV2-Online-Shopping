@@ -5,7 +5,7 @@
     "subtitle": "Online spend ÷ population. Dashed line = Australian average ($2,958)"
   },
   "width": "container",
-  "height": 300,
+  "height": 390,
   "data": {
     "url": "data/auspost_states_2025.csv",
     "format": {
@@ -61,9 +61,9 @@
         "color": {
           "condition": {
             "test": "datum.state === 'ACT'",
-            "value": "#e8590c"
+            "value": "#1e8a5a"
           },
-          "value": "#d9cfbd"
+          "value": "#dedad2"
         }
       }
     },
@@ -95,9 +95,9 @@
         "color": {
           "condition": {
             "test": "datum.state === 'ACT'",
-            "value": "#e8590c"
+            "value": "#1e8a5a"
           },
-          "value": "#4a3f2e"
+          "value": "#4a4740"
         },
         "tooltip": [
           {
@@ -154,7 +154,7 @@
         "color": {
           "condition": {
             "test": "datum.state === 'ACT'",
-            "value": "#e8590c"
+            "value": "#1e8a5a"
           },
           "value": "#6b7280"
         }
@@ -185,7 +185,7 @@
           "value": 0
         },
         "y2": {
-          "value": 300
+          "value": 390
         }
       }
     },
@@ -203,7 +203,7 @@
         "baseline": "bottom",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#e8590c",
+        "color": "#1e8a5a",
         "text": "ACT: small population, biggest spenders ▾"
       },
       "encoding": {
@@ -218,7 +218,7 @@
     }
   ],
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -227,31 +227,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }

@@ -20,7 +20,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#efe9de",
+        "fill": "#ecebe8",
         "stroke": "#ffffff",
         "strokeWidth": 1.2
       }
@@ -99,9 +99,9 @@
             "color": {
               "condition": {
                 "test": "datum.state === 'NSW'",
-                "value": "#e8590c"
+                "value": "#1e8a5a"
               },
-              "value": "#a08b66"
+              "value": "#b3afa6"
             },
             "strokeWidth": {
               "condition": {
@@ -115,7 +115,7 @@
               "condition": {
                 "param": "hoverState",
                 "empty": false,
-                "value": "#1f2328"
+                "value": "#222222"
               },
               "value": "#ffffff"
             },
@@ -177,7 +177,7 @@
             "type": "text",
             "fontWeight": 600,
             "fontSize": 10,
-            "color": "#1f2328",
+            "color": "#222222",
             "align": "left",
             "dx": 8
           },
@@ -210,7 +210,7 @@
       "mark": {
         "type": "text",
         "align": "center",
-        "color": "#e8590c",
+        "color": "#1e8a5a",
         "fontWeight": 700,
         "fontSize": 11,
         "lineBreak": "\n"
@@ -231,7 +231,7 @@
     }
   ],
   "config": {
-    "font": "Inter",
+    "font": "IBM Plex Sans",
     "background": null,
     "view": {
       "stroke": null
@@ -240,31 +240,31 @@
       "anchor": "start",
       "fontSize": 15,
       "fontWeight": 700,
-      "color": "#1f2328",
+      "color": "#222222",
       "subtitleFontSize": 12,
       "subtitleColor": "#6b7280",
       "offset": 12
     },
     "axis": {
       "labelColor": "#6b7280",
-      "titleColor": "#1f2328",
+      "titleColor": "#222222",
       "titleFontWeight": 600,
       "titleFontSize": 11,
       "labelFontSize": 11,
-      "gridColor": "#e7e2d8",
-      "domainColor": "#cfc8bb",
-      "tickColor": "#cfc8bb"
+      "gridColor": "#e8e3d8",
+      "domainColor": "#d2cec4",
+      "tickColor": "#d2cec4"
     },
     "legend": {
-      "labelColor": "#1f2328",
-      "titleColor": "#1f2328",
+      "labelColor": "#222222",
+      "titleColor": "#222222",
       "titleFontSize": 11,
       "labelFontSize": 11,
       "titleFontWeight": 600
     },
     "text": {
-      "font": "Inter",
-      "color": "#1f2328"
+      "font": "IBM Plex Sans",
+      "color": "#222222"
     }
   }
 }
